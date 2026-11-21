@@ -1,0 +1,58 @@
+name: svod
+description: >-
+  Свод — модульное кроссплатформенное зашифрованное пространство для заметок,
+  таблиц, календаря, паролей и общих папок (Windows, Android, Linux, macOS).
+publish_to: 'none'
+version: 0.1.0+1
+
+environment:
+  sdk: '>=3.3.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+
+  # Криптография (AES-256-GCM + PBKDF2-HMAC-SHA256)
+  cryptography: ^2.7.0
+
+  # Файлы, архивы, пути и сеть
+  path_provider: ^2.1.4
+  http: ^1.2.2
+  file_picker: ^8.1.2
+  image_picker: ^1.1.2
+  image: ^4.2.0
+  archive: ^3.6.1
+  url_launcher: ^6.3.1
+  connectivity_plus: ^6.1.0
+  pdf: ^3.11.1
+
+  # Аудио и диктовка
+  record: ^5.1.2
+  audioplayers: ^6.1.0
+
+  # Безопасность и системные уведомления
+  local_auth: ^2.3.0
+  flutter_secure_storage: ^9.2.2
+  flutter_local_notifications: ^17.2.3
+  timezone: ^0.9.4
+
+  # Десктоп и Android интеграции
+  window_manager: ^0.4.2
+  tray_manager: ^0.2.3
+  android_intent_plus: ^5.1.0
+  workmanager: ^0.5.2
+
+  # Опциональные платформенные пакеты (раскомментируйте при сборке с нативными хуками / Whisper):
+  # win32: ^5.5.4
+  # ffi: ^2.1.3
+  # whisper_ggml: ^1.2.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+flutter:
+  uses-material-design: true
