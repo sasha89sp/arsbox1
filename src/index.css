@@ -1,0 +1,152 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --bg: #FAFAF9;
+  --sidebar: #F4F4F5;
+  --panel: #FFFFFF;
+  --text: #18181B;
+  --text2: #71717A;
+  --muted: #A1A1AA;
+  --divider: #E4E4E7;
+  --accent: #4F46E5;
+  --accent-hover: #4338CA;
+  --accent-soft: #EEF2FF;
+  --tag-fg: #D97706;
+  --tag-bg: #FEF3C7;
+  --link-bg: #EEF2FF;
+  --success: #059669;
+  --warn: #D97706;
+  --error: #DC2626;
+  --font-scale: 1;
+}
+
+.dark {
+  --bg: #09090B;
+  --sidebar: #111113;
+  --panel: #18181B;
+  --text: #FAFAFA;
+  --text2: #A1A1AA;
+  --muted: #71717A;
+  --divider: #27272A;
+  --accent: #818CF8;
+  --accent-hover: #6366F1;
+  --accent-soft: rgba(129, 140, 248, 0.16);
+  --tag-fg: #FBBF24;
+  --tag-bg: rgba(217, 119, 6, 0.2);
+  --link-bg: rgba(129, 140, 248, 0.2);
+  --success: #34D399;
+  --warn: #FBBF24;
+  --error: #F87171;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', 'SF Pro Text', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.dark body {
+  letter-spacing: 0.005em;
+}
+
+.font-mono-tabular {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+.scaled-text {
+  font-size: calc(14px * var(--font-scale));
+}
+
+/* Subtle native scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--divider);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--muted);
+}
+
+/* Resizer handle */
+.pane-resizer {
+  width: 4px;
+  cursor: col-resize;
+  background: transparent;
+  transition: background-color 150ms ease;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 10;
+}
+
+.pane-resizer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 1px;
+  width: 1px;
+  background: var(--divider);
+}
+
+.pane-resizer:hover::after,
+.pane-resizer.dragging::after {
+  left: 0;
+  width: 3px;
+  background: var(--accent);
+}
+
+/* Custom checkbox 4px radius */
+.svod-checkbox {
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  border: 1.5px solid var(--muted);
+  border-radius: 4px;
+  background: var(--panel);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background-color 120ms ease, border-color 120ms ease;
+}
+
+.svod-checkbox:checked {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.svod-checkbox:checked::after {
+  content: '';
+  width: 8px;
+  height: 5px;
+  border-left: 1.8px solid #ffffff;
+  border-bottom: 1.8px solid #ffffff;
+  transform: rotate(-45deg) translateY(-1px);
+}
